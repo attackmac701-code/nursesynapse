@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+export const prerender = true;
+---
+
+<Layout
+  title="About NurseSynapse — Real Nurse, Honest Reviews"
+  description="NurseSynapse is built by a working RN to help nurses navigate NCLEX prep, AI tools, and career resources with honest, experience-based guidance."
+>
+  <article>
+    <h1>About NurseSynapse</h1>
+    <p class="lede">
+      NurseSynapse exists because nurses deserve honest information — not sponsored content disguised as advice.
+    </p>
+
+    <h2>Who we are</h2>
+    <p>
+      NurseSynapse is run by a working registered nurse. Not a marketing team. Not a content agency.
+      A real clinician who has used these tools, studied for boards, and navigated the evolving
+      landscape of AI in healthcare firsthand.
+    </p>
+    <p>
+      When we review an NCLEX prep course, it's based on real experience with the material — not
+      a quick skim of the features page. When we cover an AI charting tool, we're thinking about
+      how it actually fits into a real shift.
+    </p>
+
+    <h2>What we cover</h2>
+    <ul>
+      <li><strong>NCLEX prep</strong> — honest comparisons of the major courses, what works, what doesn't</li>
+      <li><strong>AI tools for nurses</strong> — emerging technology that's actually useful at the bedside or in practice</li>
+      <li><strong>Nursing career resources</strong> — CE platforms, scheduling tools, clinical reference apps</li>
+      <li><strong>Guides</strong> — practical content for nursing students, new grads, and experienced RNs</li>
+    </ul>
+
+    <h2>Affiliate disclosure</h2>
+    <p>
+      NurseSynapse uses affiliate links. If you click a link and make a purchase, we may earn a
+      commission — at no extra cost to you. This is how we keep the site running without paywalls
+      or sponsored content.
+    </p>
+    <p>
+      We only recommend tools and courses we genuinely believe are worth your money and time.
+      Affiliate relationships do not influence our reviews or rankings.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Questions, suggestions, or want to share your experience with a tool? <a href="/contact">Reach out →</a></p>
+  </article>
+</Layout>
+
+<style>
+  article { max-width: 68ch; }
+  .lede { font-size: 18px; color: var(--text-muted); margin-bottom: 24px; }
+  ul { padding-left: 20px; }
+  ul li { margin: 8px 0; }
+</style>

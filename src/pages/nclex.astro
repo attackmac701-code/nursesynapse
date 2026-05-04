@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+export const prerender = true;
+
+const courses = [
+  {
+    name: "UWorld Nursing",
+    href: "/reviews/uworld-nursing-review",
+    rating: "9.5/10",
+    price: "$329–$449",
+    best: "Best overall",
+    desc: "The most realistic NCLEX-style questions available. Detailed rationales that actually teach you to think clinically.",
+    tags: ["Most popular", "Hardest questions", "Best rationales"],
+  },
+  {
+    name: "Nursing.com (NRSNG)",
+    href: "/reviews/nursing-com-review",
+    rating: "9.0/10",
+    price: "$49/month",
+    best: "Best for visual learners",
+    desc: "Video-based learning with a strong nursing community. Great for students who struggle with dense textbooks.",
+    tags: ["Video lessons", "Community", "Subscription"],
+  },
+  {
+    name: "Simple Nursing",
+    href: "/reviews/simple-nursing-review",
+    rating: "8.5/10",
+    price: "$39/month",
+    best: "Best for beginners",
+    desc: "Breaks down complex nursing concepts into simple, memorable frameworks. Excellent for early nursing students.",
+    tags: ["Beginner friendly", "Simplified concepts", "Subscription"],
+  },
+  {
+    name: "Archer Review",
+    href: "/reviews/archer-review-nclex",
+    rating: "8.5/10",
+    price: "$99–$199",
+    best: "Best budget option",
+    desc: "High-quality question bank at a lower price point. Strong predictor of NCLEX pass rates.",
+    tags: ["Affordable", "Question bank", "Good predictor"],
+  },
+  {
+    name: "Kaplan Nursing",
+    href: "/reviews/kaplan-nursing-review",
+    rating: "8.0/10",
+    price: "$299–$499",
+    best: "Best for structure",
+    desc: "Comprehensive and well-structured. Kaplan's decision tree method helps systematic thinkers excel on NCLEX.",
+    tags: ["Structured", "Decision tree", "Comprehensive"],
+  },
+];
+---
+
+<Layout
+  title="Best NCLEX Prep Courses 2025 — Compared by a Real Nurse | NurseSynapse"
+  description="Honest NCLEX prep course comparisons from a real RN. UWorld vs Archer vs Kaplan vs Nursing.com — which one is actually worth your money?"
+>
+  <h1>Best NCLEX Prep Courses of 2025</h1>
+  <p class="lede">
+    Compared by a working RN — not a marketing team. Here's what actually helps you pass.
+  </p>
+
+  <div class="disclaimer-box">
+    <strong>Affiliate disclosure:</strong> Links below may earn us a commission. Rankings are based on real assessment, not partnerships.
+  </div>
+
+  <div class="course-list">
+    {courses.map((c, i) => (
+      <div class="course-card">
+        <div class="course-rank">#{i + 1}</div>
+        <div class="course-body">
+          <div class="course-header">
+            <h2><a href={c.href}>{c.name}</a></h2>
+            <span class="best-badge">{c.best}</span>
+          </div>
+          <p class="course-desc">{c.desc}</p>
+          <div class="course-tags">
+            {c.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+          <div class="course-footer">
+            <span class="price">{c.price}</span>
+            <span class="rating">⭐ {c.rating}</span>
+            <a href={c.href} class="btn-review">Full Review →</a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+
+    <h3>Which NCLEX prep course has the highest pass rate?</h3>
+    <p>UWorld consistently shows the highest correlation between high question bank scores and NCLEX pass rates. Students who score above 60% on UWorld pass at very high rates.</p>
+
+    <h3>How long should I study for NCLEX?</h3>
+    <p>Most nursing graduates need 4–8 weeks of dedicated study. Aim for 75–100 questions per day with thorough rationale review. Quality of review matters more than raw question count.</p>
+
+    <h3>Can I use more than one prep course?</h3>
+    <p>Yes, but focus on one question bank. Many students use one course for content review (like Simple Nursing or Nursing.com) and one for practice questions (UWorld or Archer). Avoid spreading too thin.</p>
+
+    <h3>Is the NCLEX-RN harder than NCLEX-PN?</h3>
+    <p>They test different scopes of practice rather than difficulty levels. NCLEX-RN covers more complex clinical decision-making. Both require focused preparation.</p>
+  </section>
+</Layout>
+
+<style>
+  .lede { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+  .disclaimer-box { background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #854d0e; margin-bottom: 32px; }
+  .course-list { display: flex; flex-direction: column; gap: 16px; }
+  .course-card { display: flex; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
+  .course-rank { font-size: 28px; font-weight: 800; color: var(--border); min-width: 40px; padding-top: 4px; }
+  .course-body { flex: 1; }
+  .course-header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .course-header h2 { margin: 0; font-size: 20px; }
+  .best-badge { background: var(--accent-soft); color: var(--accent); border: 1px solid #99f6e4; border-radius: 20px; padding: 2px 10px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .course-desc { color: var(--text-muted); font-size: 15px; margin: 0 0 12px; }
+  .course-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tag { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 12px; color: var(--text-muted); }
+  .course-footer { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .price { font-weight: 700; font-size: 15px; }
+  .rating { font-size: 14px; color: var(--text-muted); }
+  .btn-review { margin-left: auto; background: var(--accent); color: white; padding: 8px 18px; border-radius: 7px; font-size: 14px; font-weight: 600; }
+  .btn-review:hover { opacity: 0.9; text-decoration: none; }
+  .faq { margin-top: 48px; }
+  .faq h3 { font-size: 17px; margin: 20px 0 6px; }
+  .faq p { color: var(--text-muted); margin: 0 0 4px; }
+</style>
